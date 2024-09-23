@@ -1,5 +1,5 @@
-# Thermocouple Monitor
-This repository describes the components needed to make a thermocouple monitor, which reads the temperature from a K-type thermocouple and shows the results on a LED display.
+# Thermocouple Thermometer
+This repository describes the components needed to make a thermocouple thermometer, which reads the temperature from a K-type thermocouple and shows the results on a LED display.
 
 <img src="images/thermocouple-connection.jpeg" width="600">
 
@@ -18,7 +18,7 @@ The [schematic](schematic/thermocouple-measurement-unit.pdf) shows how everythin
 The enclosure design is a derivative of the [3DP case for an Adafruit half-size Perma-Proto Half-Sized breadboard](https://www.printables.com/model/37200-perma-proto-feather-case).  
 
 The modifications include:
-1. side hole to plug usb cable into Raspberry Pi Pico
+1. side hole to plug usb cable into a Raspberry Pi Pico
 1. top hole to fit a bezel for the HT16K33 Backpack PCB
 1. mount for the Adafruit Universal Thermocouple Amplifier MAX31856 Breakout
 1. strain relief for thermocouple cable
@@ -29,11 +29,11 @@ The modifications include:
 <img src="images/outside.jpeg" width="600">
 
 ## CircuitPython Code
-A few lines of CircuitPython [code](code/code.py) is used to read the temperature values from thermocouple board and display the values on the display.  The code uses two Adafruit CircuitPython libraries:
+A few lines of CircuitPython [code](code/code.py) is used to read the temperature values from thermocouple board and show the values on the LED display.  The code uses two Adafruit CircuitPython libraries:
 1. adafruit_ht16k33
 1. adafruit_max31856
 
-These two libraries need to loaded into the CircuitPython filesystem on the Raspberry Pi Pico.
+These two libraries need to be loaded into the CircuitPython filesystem on the Raspberry Pi Pico.
 
 ## Wiring and Assembly
 The breakout boards are connected to the PCB using [male header pins](https://www.adafruit.com/product/3009) and [female-to-female jumper wires](https://www.adafruit.com/product/1951).  Solid 22 AWG wire is used to make point-to-point connections on the PCB, between the Raspberry Pi Pico and the male header pins.  M2x5mm screws are used to attach the display backpack to the 3DP display mount.  The same type of screws are used to attach the thermocouple breakout to the 3DP frame.  Everything else snaps together.  The PCB may not be a tight snap fit to the bottom 3DP piece.  In that case two addition M2x5mm screws can be used to secure it.  The thermocouple feeds through the stain relief and then screws into the 2 pin terminal block.  The thermocouple wires are polarized.  You have a 50/50 chance of getting the right orientation.  If the temperature reads incorrectly swap the wires in the terminal block.
